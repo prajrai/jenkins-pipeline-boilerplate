@@ -10,7 +10,7 @@ pipeline {
                 EC2_PUB_KEY = credentials('web-srv-pub')
             }
             steps {
-                sh 'ssh -t -t -i $EC2_PUB_KEY $USER@$SERVER_IP w'
+                sh "ssh -t -t -o StrictHostKeyChecking=no -i $EC2_PUB_KEY $USER@$SERVER_IP w"
             }
         }
     }
